@@ -1,9 +1,9 @@
 GET http://localhost:3000/api/short-links
 
-###
+### req.query
 GET http://localhost:3000/api/short-links/123?q=codeit
 
-###
+### req.body
 POST http://localhost:3000/api/short-links/123
 Content-Type: application/json
 
@@ -14,3 +14,6 @@ Content-Type: application/json
 ### req.cookies
 GET http://localhost:3000/api/short-links/123
 Cookie: session-id=codeit1234
+
+###
+GET http://localhost:3000/api/qrcodes
