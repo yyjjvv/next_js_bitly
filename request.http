@@ -4,12 +4,27 @@ GET http://localhost:3000/api/short-links
 GET http://localhost:3000/api/short-links/123?q=codeit
 
 ### req.body
-POST http://localhost:3000/api/short-links/123
+POST http://localhost:3000/api/short-links
 Content-Type: application/json
 
 {
-    "title": "codeit"
+    "title": "codeit",
+    "url": "https://codeit.kr"
 }
+
+###
+GET http://localhost:3000/api/short-links/6596bb803be1bf5d26b327e8
+
+###
+PATCH http://localhost:3000/api/short-links/6596bb803be1bf5d26b327e8
+Content-Type: application/json
+
+{
+    "title": "codeit-edit"
+}
+
+###
+DELETE http://localhost:3000/api/short-links/6596c18b3be1bf5d26b327f8
 
 ### req.cookies
 GET http://localhost:3000/api/short-links/123
@@ -28,19 +43,15 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:3000/api/qrcodes
+GET http://localhost:3000/api/qrcodes/6596d6923be1bf5d26b327fc
 
 ###
-GET http://localhost:3000/api/qrcodes/abc
-
-###
-PATCH http://localhost:3000/api/qrcodes/abc
+PATCH http://localhost:3000/api/qrcodes/6596d6923be1bf5d26b327fc
 Content-Type: application/json
 
 {
-  "title": "위키피디아 Next.js",
-  "url": "https://en.wikipedia.org/wiki/Next.js"
+  "title": "위키피디아 Next.js edit2"
 }
 
 ###
-DELETE http://localhost:3000/api/qrcodes/abc
+DELETE http://localhost:3000/api/qrcodes/6596d6923be1bf5d26b327fc
