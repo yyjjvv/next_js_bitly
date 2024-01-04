@@ -17,3 +17,30 @@ Cookie: session-id=codeit1234
 
 ###
 GET http://localhost:3000/api/qrcodes
+
+###
+POST http://localhost:3000/api/qrcodes
+Content-Type: application/json
+
+{
+  "title": "위키피디아 Next.js",
+  "url": "https://en.wikipedia.org/wiki/Next.js"
+}
+
+###
+PATCH http://localhost:3000/api/qrcodes
+
+###
+GET http://localhost:3000/api/qrcodes/abc
+
+###
+PATCH http://localhost:3000/api/qrcodes/abc
+Content-Type: application/json
+
+{
+  "title": "위키피디아 Next.js",
+  "url": "https://en.wikipedia.org/wiki/Next.js"
+}
+
+###
+DELETE http://localhost:3000/api/qrcodes/abc
