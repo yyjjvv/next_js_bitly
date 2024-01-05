@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
+import axios from "@/lib/axios";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import styles from "@/styles/Home.module.css";
@@ -18,7 +19,8 @@ export default function Home() {
     async function handleCreate(e) {
         e.preventDefault();
         // API 요청
-        const newShortUrl = "abcdef";
+        const res = await axios.post('/short-links', {title: url, url})
+        const newShortUrl = res.data.shortUrl;
         setShortUrl(newShortUrl);
     }
 

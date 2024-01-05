@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import dbConnect from "@/db/dbConnect";
 import ShortLink from "@/db/models/ShortLink";
+import createShortURL from "@/lib/createShortURL";
 
 export default async function handler(req, res) {
     await dbConnect();
@@ -8,7 +9,13 @@ export default async function handler(req, res) {
 
     switch (req.method) {
         case "POST":
-            const newShortLink = await ShortLink.create(req.body);
+            const { title, url } = req.body;
+            const shortUrl = createShortURL(url);
+            const newShortLink = await ShortLink.create({
+                title,
+                url,
+                shortUrl,
+            });
             res.status(201).send(newShortLink);
             break;
         case "GET":
