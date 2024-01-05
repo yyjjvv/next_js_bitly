@@ -1,17 +1,24 @@
-import Head from 'next/head';
-import QRCodeForm from '@/components/QRCodeForm';
-import styles from '@/styles/QRCodeCreatePage.module.css';
+import Head from "next/head";
+import QRCodeForm from "@/components/QRCodeForm";
+import styles from "@/styles/QRCodeCreatePage.module.css";
+import axios from "@/lib/axios";
+import { useRouter } from "next/router";
 
 export default function QRCodeCreatePage() {
-  return (
-    <>
-      <Head>
-        <title>새 QRCode 추가 - Shortit</title>
-      </Head>
-      <div className={styles.page}>
-        <h1 className={styles.title}>새 QRCode 추가</h1>
-        <QRCodeForm />
-      </div>
-    </>
-  );
+    const router = useRouter();
+    const handleSubmit = async (values) => {
+        await axios.post("/qrcodes", values);
+        router.push("/qrcodes");
+    };
+    return (
+        <>
+            <Head>
+                <title>새 QRCode 추가 - Shortit</title>
+            </Head>
+            <div className={styles.page}>
+                <h1 className={styles.title}>새 QRCode 추가</h1>
+                <QRCodeForm onSubmit={handleSubmit} />
+            </div>
+        </>
+    );
 }
