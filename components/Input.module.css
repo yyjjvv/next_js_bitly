@@ -1,17 +1,17 @@
 .input {
-  background: #fafafc;
-  border: 1px solid #c8c6d0;
-  border-radius: 5px;
-  padding: 18px 21px;
-  color: #383640;
+    background: var(--color-white);
+    border: 1px solid var(--color-input-gray);
+    border-radius: 5px;
+    padding: 18px 21px;
+    color: var(--color-dark-gray);
 }
 
 .input:focus {
-  padding: 17px 20px;
-  border-color: #613ad1;
-  border-width: 2px;
+    padding: 17px 20px;
+    border-color: var(--color-main);
+    border-width: 2px;
 }
 
 .input::placeholder {
-  color: #c8c6d0;
+    color: var(--color-input-gray);
 }

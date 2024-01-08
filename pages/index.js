@@ -1,10 +1,8 @@
 import { useRef, useState } from "react";
-import Image from "next/image";
 import axios from "@/lib/axios";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import styles from "@/styles/Home.module.css";
-import cutUrlImage from "@/public/cut-url.svg";
 import copyToClipboard from "@/lib/copyToClipboard";
 
 export default function Home() {
@@ -19,7 +17,7 @@ export default function Home() {
     async function handleCreate(e) {
         e.preventDefault();
         // API 요청
-        const res = await axios.post('/short-links', {title: url, url})
+        const res = await axios.post("/short-links", { title: url, url });
         const newShortUrl = res.data.shortUrl;
         setShortUrl(newShortUrl);
     }
@@ -41,18 +39,12 @@ export default function Home() {
                 }
             `}</style>
             <div className={styles.home}>
-                <Image
-                    src={cutUrlImage}
-                    alt="가위로 주소 자르기"
-                    width={200}
-                    height={140}
-                />
                 <div className={styles.intro}>
                     <h1 className={styles.title}>
-                        긴 주소를 짧은 주소로 줄이세요
+                        긴 주소를 짧은 주소로 줄이세요!
                     </h1>
                     <p className={styles.description}>
-                        길고 복잡한 링크 주소를 짧게 줄이는 단축URL 서비스
+                        길고 복잡한 주소를 짧게 줄이는 단축 URL 생성 서비스
                     </p>
                 </div>
                 <form className={styles.form} onSubmit={handleCreate}>

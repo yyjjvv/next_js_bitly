@@ -1,5 +1,13 @@
+:root {
+    --color-main: #e58029;
+    --color-sub-text: #8a8797;
+    --color-white: #fafafc;
+    --color-light-gray: #e4e3e8;
+    --color-dark-gray: #383640;
+    --color-input-gray:#c8c6d0;
+}
 body {
-    background-color: #e4e3e8;
-    color: #383640;
+    background-color: var(--color-light-gray);
+    color: var(--color-dark-gray);
     margin: 0;
 }

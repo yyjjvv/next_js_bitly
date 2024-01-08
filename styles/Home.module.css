@@ -35,7 +35,7 @@
 }
 
 .input.shortUrl {
-    color: #6f42ee;
+    color: var(--color-main);
 }
 
 .button {

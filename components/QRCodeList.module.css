@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #8a8797;
+  color: var(--color-sub-text);
 }
 
 .link {

@@ -1,6 +1,4 @@
-import Image from "next/image";
-import { Noto_Sans_KR } from "@next/font/google";
-import logoImage from "@/public/logo.svg";
+import { Noto_Sans_KR, Pacifico } from "@next/font/google";
 import styles from "@/styles/App.module.css";
 import "@/styles/global.css";
 import Link from "@/components/Link";
@@ -10,6 +8,7 @@ const notoSansKR = Noto_Sans_KR({
     weight: ["400", "500"],
     subsets: ["latin"],
 });
+const pacifico = Pacifico({ weight: ["400"],subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
     return (
@@ -21,12 +20,7 @@ export default function App({ Component, pageProps }) {
                 <header className={styles.header}>
                     <nav className={`${styles.nav} ${styles.container}`}>
                         <Link href="/">
-                            <Image
-                                width={93}
-                                height={26}
-                                src={logoImage}
-                                alt="Shortit"
-                            />
+                            <h1 className={`${styles.logo} ${pacifico.className}`}>MakeItShort</h1>
                         </Link>
                         <div className={styles.links}>
                             <Link href="/short-links">주소 줄이기</Link>

@@ -13,6 +13,12 @@
     z-index: 1;
 }
 
+.logo{
+    font-size: 20px;
+    line-height: 1;
+    color: var(--color-main)
+}
+
 .container {
     margin: 0 auto;
     width: 100%;
