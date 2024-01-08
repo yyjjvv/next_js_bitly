@@ -13,8 +13,8 @@ export default async function handler(req, res) {
         case "GET":
             // const props = Object.keys(QRCode.schema.paths);
             // console.log(props);
-            const qRCodes = await QRCode.find();
-            res.send(qRCodes);
+            const qrcodes = await QRCode.find();
+            res.send(qrcodes);
             break;
         default:
             res.status(404).send();

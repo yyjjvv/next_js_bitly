@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const qRCodeSchema = new mongoose.Schema(
+const qrcodeSchema = new mongoose.Schema(
     {
         title: { type: String, default: "" },
         url: { type: String, default: "" },
@@ -12,6 +12,6 @@ const qRCodeSchema = new mongoose.Schema(
 
 const QRCode =
     mongoose.models["QRCode"] ||
-    mongoose.model("QRCode", qRCodeSchema);
+    mongoose.model("QRCode", qrcodeSchema);
 
 export default QRCode;
