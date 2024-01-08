@@ -34,11 +34,11 @@ const QRCodeListPage = ({ qrcodes: initialQRCodes }) => {
     return (
         <>
             <Head>
-                <title>QRCode 만들기 - Shortit</title>
+                <title>QRCode 리스트 - MakeItShort</title>
             </Head>
             <div className={styles.page}>
                 <header className={styles.header}>
-                    <h1 className={styles.title}>QRCode 만들기</h1>
+                    <h1 className={styles.title}>QRCode 리스트</h1>
                     <Button as={Link} href="/qrcodes/new">
                         새로 만들기
                     </Button>

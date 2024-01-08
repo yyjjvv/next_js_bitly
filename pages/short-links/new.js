@@ -18,10 +18,10 @@ const ShortLinkCreatePage = () => {
     return (
         <>
             <Head>
-                <title>새 URL 추가 - Shortit</title>
+                <title>새 URL 생성하기 - MakeItShort</title>
             </Head>
             <div className={styles.page}>
-                <h1 className={styles.title}>새 URL 추가</h1>
+                <h1 className={styles.title}>새 URL 생성하기</h1>
                 <ShortLinkForm onSubmit={handleSubmit} />
             </div>
         </>

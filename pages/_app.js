@@ -30,8 +30,8 @@ const App = ({ Component, pageProps }) => {
                             </h1>
                         </Link>
                         <div className={styles.links}>
-                            <Link href="/short-links">주소 줄이기</Link>
-                            <Link href="/qrcodes">QR코드</Link>
+                            <Link href="/short-links">단축 URL</Link>
+                            <Link href="/qrcodes">QR 코드</Link>
                         </div>
                     </nav>
                 </header>

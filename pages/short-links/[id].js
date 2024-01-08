@@ -37,10 +37,10 @@ const ShortLinkEditPage = ({ shortLink }) => {
     return (
         <>
             <Head>
-                <title>주소 수정하기 - Shortit</title>
+                <title>주소 수정하기 - MakeItShort</title>
             </Head>
             <div className={styles.page}>
-                <h1 className={styles.title}>수정하기</h1>
+                <h1 className={styles.title}>주소 수정하기</h1>
                 <ShortLinkForm
                     type={ShortLinkFormType.Edit}
                     initialValues={shortLink}

@@ -38,7 +38,7 @@ const QRCodeEditPage = ({ qrcode: initialQRCode }) => {
     return (
         <>
             <Head>
-                <title>QRCode 수정하기 - Shortit</title>
+                <title>QRCode 수정하기 - MakeItShort</title>
             </Head>
             <div className={styles.page}>
                 <h1 className={styles.title}>QRCode 수정하기</h1>

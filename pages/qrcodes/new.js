@@ -18,10 +18,10 @@ const QRCodeCreatePage = () => {
     return (
         <>
             <Head>
-                <title>새 QRCode 추가 - Shortit</title>
+                <title>새 QRCode 추가하기 - MakeItShort</title>
             </Head>
             <div className={styles.page}>
-                <h1 className={styles.title}>새 QRCode 추가</h1>
+                <h1 className={styles.title}>새 QRCode 추가하기</h1>
                 <QRCodeForm onSubmit={handleSubmit} />
             </div>
         </>

@@ -8,11 +8,11 @@ const CardTop = ({ className, ...rest }) => {
     return <div className={`${className} ${styles.cardTop}`} {...rest} />;
 };
 
-const CardFooter = ({ className, ...rest }) => {
-    return <div className={`${className} ${styles.cardFooter}`} {...rest} />;
+const CardBottom = ({ className, ...rest }) => {
+    return <div className={`${className} ${styles.cardBottom}`} {...rest} />;
 };
 
 Card.Top = CardTop;
-Card.Footer = CardFooter;
+Card.Bottom = CardBottom;
 
 export default Card;

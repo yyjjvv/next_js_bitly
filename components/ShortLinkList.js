@@ -45,7 +45,7 @@ const ShortLinkItem = ({ value, onDelete }) => {
                     </div>
                 </div>
             </Card.Top>
-            <Card.Footer>
+            <Card.Bottom>
                 <div className={styles.link}>
                     <Image src={linkIcon} alt="link" />
                     <Link
@@ -62,7 +62,7 @@ const ShortLinkItem = ({ value, onDelete }) => {
                         {value.url}
                     </Link>
                 </div>
-            </Card.Footer>
+            </Card.Bottom>
         </Card>
     );
 };
