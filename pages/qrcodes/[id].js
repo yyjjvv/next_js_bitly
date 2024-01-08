@@ -1,12 +1,15 @@
+// packages
 import Head from "next/head";
-import QRCodeForm, { QRCodeFormType } from "@/components/QRCodeForm";
-import styles from "@/styles/QRCodeEditPage.module.css";
+import { useRouter } from "next/router";
+// customed files
 import QRCode from "@/db/models/QRCode";
 import dbConnect from "@/db/dbConnect";
 import axios from "@/lib/axios";
-import { useRouter } from "next/router";
+import styles from "@/styles/QRCodeEditPage.module.css";
+// components
+import QRCodeForm, { QRCodeFormType } from "@/components/QRCodeForm";
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
     const { id } = context.query;
     await dbConnect();
     const qrcode = await QRCode.findById(id);
@@ -21,16 +24,16 @@ export async function getServerSideProps(context) {
             },
         };
     }
-}
+};
 
-export default function QRCodeEditPage({ qrcode: initialQRCode }) {
+const QRCodeEditPage = ({ qrcode: initialQRCode }) => {
     const router = useRouter();
     const { id } = router.query;
 
-    async function handleSubmit(values) {
+    const handleSubmit = async (values) => {
         await axios.patch(`/qrcodes/${id}`, values);
         router.push("/qrcodes");
-    }
+    };
 
     return (
         <>
@@ -47,4 +50,6 @@ export default function QRCodeEditPage({ qrcode: initialQRCode }) {
             </div>
         </>
     );
-}
+};
+
+export default QRCodeEditPage;

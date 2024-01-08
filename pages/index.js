@@ -1,34 +1,37 @@
+// packages
 import { useRef, useState } from "react";
+// customed files
 import axios from "@/lib/axios";
+import copyToClipboard from "@/lib/copyToClipboard";
+import styles from "@/styles/Home.module.css";
+// components
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import styles from "@/styles/Home.module.css";
-import copyToClipboard from "@/lib/copyToClipboard";
 
-export default function Home() {
+const Home = () => {
     const [url, setUrl] = useState("");
     const [shortUrl, setShortUrl] = useState("");
     const inputRef = useRef();
 
-    function handleChange(e) {
+    const handleChange = (e) => {
         setUrl(e.target.value);
-    }
+    };
 
-    async function handleCreate(e) {
+    const handleCreate = async (e) => {
         e.preventDefault();
         // API 요청
         const res = await axios.post("/short-links", { title: url, url });
         const newShortUrl = res.data.shortUrl;
         setShortUrl(newShortUrl);
-    }
+    };
 
-    async function handleCopy(e) {
+    const handleCopy = async (e) => {
         e.preventDefault();
         inputRef.current.select();
         const text = inputRef.current.value;
         await copyToClipboard(text);
         alert("복사했습니다. ctrl + v로 붙여넣으세요");
-    }
+    };
 
     return (
         <>
@@ -73,4 +76,6 @@ export default function Home() {
             </div>
         </>
     );
-}
+};
+
+export default Home;

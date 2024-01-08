@@ -1,6 +1,7 @@
 .shortLinkForm {
   display: flex;
   flex-direction: column;
+  padding: 35px;
 }
 
 .label {

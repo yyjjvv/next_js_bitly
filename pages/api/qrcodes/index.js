@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import dbConnect from "@/db/dbConnect";
 import QRCode from "@/db/models/QRCode";
 
@@ -11,8 +10,6 @@ export default async function handler(req, res) {
             res.status(201).send(newQRCode);
             break;
         case "GET":
-            // const props = Object.keys(QRCode.schema.paths);
-            // console.log(props);
             const qrcodes = await QRCode.find();
             res.send(qrcodes);
             break;

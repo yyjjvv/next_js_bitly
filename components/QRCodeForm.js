@@ -1,6 +1,9 @@
-import { useState } from "react";
+// packages
 import { useRouter } from "next/router";
+import { useState } from "react";
+// style
 import styles from "./QRCodeForm.module.css";
+// components
 import Card from "./Card";
 import Input from "./Input";
 import Button from "./Button";
@@ -10,34 +13,34 @@ export const QRCodeFormType = {
     Edit: "edit",
 };
 
-export default function QRCodeForm({
+const QRCodeForm = ({
     type = QRCodeFormType.Create,
     initialValues = {
         title: "",
         url: "",
     },
     onSubmit,
-}) {
+}) => {
     const { title, url } = initialValues;
     const [values, setValues] = useState({ title, url });
     const router = useRouter();
 
-    async function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         await onSubmit(values);
         setValues({
             title: "",
             url: "",
         });
-    }
+    };
 
-    function handleChange(e) {
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setValues((prevValues) => ({
             ...prevValues,
             [name]: value,
         }));
-    }
+    };
 
     return (
         <Card>
@@ -81,4 +84,6 @@ export default function QRCodeForm({
             </form>
         </Card>
     );
-}
+};
+
+export default QRCodeForm;

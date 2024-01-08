@@ -1,7 +1,7 @@
 import dbConnect from "@/db/dbConnect";
 import ShortLink from "@/db/models/ShortLink";
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
     const { shortUrl } = context.query;
     await dbConnect();
     const shortLink = await ShortLink.findOne({ shortUrl });
@@ -16,8 +16,9 @@ export async function getServerSideProps(context) {
     return {
         notFound: true,
     };
-}
+};
 
-export default function ShortUrlPage() {
+const ShortUrlPage = () => {
     return null;
-}
+};
+export default ShortUrlPage;

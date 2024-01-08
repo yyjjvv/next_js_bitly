@@ -1,14 +1,17 @@
-import { useState } from "react";
+// packages
 import Head from "next/head";
-import QRCodeList from "@/components/QRCodeList";
-import Button from "@/components/Button";
-import Link from "@/components/Link";
-import styles from "@/styles/QRCodeListPage.module.css";
+import { useState } from "react";
+// customed files
 import dbConnect from "@/db/dbConnect";
 import QRCode from "@/db/models/QRCode";
 import axios from "@/lib/axios";
+import styles from "@/styles/QRCodeListPage.module.css";
+// components
+import Button from "@/components/Button";
+import Link from "@/components/Link";
+import QRCodeList from "@/components/QRCodeList";
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
     await dbConnect();
     const qrcodes = await QRCode.find();
     return {
@@ -16,17 +19,17 @@ export async function getServerSideProps() {
             qrcodes: JSON.parse(JSON.stringify(qrcodes)),
         },
     };
-}
+};
 
-export default function QRCodeListPage({ qrcodes: initialQRCodes }) {
+const QRCodeListPage = ({ qrcodes: initialQRCodes }) => {
     const [qrcodes, setQRCodes] = useState(initialQRCodes);
 
-    async function handleDelete(id) {
+    const handleDelete = async (id) => {
         await axios.delete(`/qrcodes/${id}`);
         setQRCodes((prevQRCodes) =>
             prevQRCodes.filter((qrcode) => qrcode._id !== id)
         );
-    }
+    };
 
     return (
         <>
@@ -44,4 +47,5 @@ export default function QRCodeListPage({ qrcodes: initialQRCodes }) {
             </div>
         </>
     );
-}
+};
+export default QRCodeListPage;

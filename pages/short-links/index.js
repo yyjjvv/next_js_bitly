@@ -1,14 +1,17 @@
+// packages
 import Head from "next/head";
-import ShortLinkList from "@/components/ShortLinkList";
-import Button from "@/components/Button";
-import Link from "@/components/Link";
-import styles from "@/styles/ShortLinkListPage.module.css";
+import { useState } from "react";
+// customed files
 import dbConnect from "@/db/dbConnect";
 import ShortLink from "@/db/models/ShortLink";
 import axios from "@/lib/axios";
-import { useState } from "react";
+import styles from "@/styles/ShortLinkListPage.module.css";
+// components
+import Button from "@/components/Button";
+import Link from "@/components/Link";
+import ShortLinkList from "@/components/ShortLinkList";
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
     await dbConnect();
     const shortLinks = await ShortLink.find();
     return {
@@ -16,9 +19,9 @@ export async function getServerSideProps() {
             shortLinks: JSON.parse(JSON.stringify(shortLinks)),
         },
     };
-}
+};
 
-export default function ShortLinkListPage({ shortLinks: initialShortLinks }) {
+const ShortLinkListPage = ({ shortLinks: initialShortLinks }) => {
     const [shortLinks, setShortLinks] = useState(initialShortLinks);
     const handleDelete = async (id) => {
         await axios.delete(`/short-links/${id}`);
@@ -42,4 +45,6 @@ export default function ShortLinkListPage({ shortLinks: initialShortLinks }) {
             </div>
         </>
     );
-}
+};
+
+export default ShortLinkListPage;

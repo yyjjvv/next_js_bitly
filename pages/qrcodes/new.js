@@ -1,15 +1,20 @@
+// packages
 import Head from "next/head";
-import QRCodeForm from "@/components/QRCodeForm";
-import styles from "@/styles/QRCodeCreatePage.module.css";
-import axios from "@/lib/axios";
 import { useRouter } from "next/router";
+// customed files
+import axios from "@/lib/axios";
+import styles from "@/styles/QRCodeCreatePage.module.css";
+// components
+import QRCodeForm from "@/components/QRCodeForm";
 
-export default function QRCodeCreatePage() {
+const QRCodeCreatePage = () => {
     const router = useRouter();
+
     const handleSubmit = async (values) => {
         await axios.post("/qrcodes", values);
         router.push("/qrcodes");
     };
+
     return (
         <>
             <Head>
@@ -21,4 +26,6 @@ export default function QRCodeCreatePage() {
             </div>
         </>
     );
-}
+};
+
+export default QRCodeCreatePage;

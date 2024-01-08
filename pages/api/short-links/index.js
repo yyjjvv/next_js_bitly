@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import dbConnect from "@/db/dbConnect";
 import ShortLink from "@/db/models/ShortLink";
 import createShortURL from "@/lib/createShortURL";

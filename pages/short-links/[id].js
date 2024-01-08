@@ -1,12 +1,15 @@
+// packages
 import Head from "next/head";
-import ShortLinkForm, { ShortLinkFormType } from "@/components/ShortLinkForm";
-import styles from "@/styles/ShortLinkEditPage.module.css";
+import { useRouter } from "next/router";
+// customed files
 import dbConnect from "@/db/dbConnect";
 import ShortLink from "@/db/models/ShortLink";
 import axios from "@/lib/axios";
-import { useRouter } from "next/router";
+import styles from "@/styles/ShortLinkEditPage.module.css";
+// components
+import ShortLinkForm, { ShortLinkFormType } from "@/components/ShortLinkForm";
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
     const { id } = context.query;
     await dbConnect();
     const shortLink = await ShortLink.findById(id);
@@ -20,15 +23,17 @@ export async function getServerSideProps(context) {
     return {
         notFound: true,
     };
-}
+};
 
-export default function ShortLinkEditPage({ shortLink }) {
+const ShortLinkEditPage = ({ shortLink }) => {
     const router = useRouter();
     const { id } = router.query;
+
     const handleSubmit = async (values) => {
-      await axios.patch(`/short-links/${id}`, values);
-      router.push('/short-links')
+        await axios.patch(`/short-links/${id}`, values);
+        router.push("/short-links");
     };
+
     return (
         <>
             <Head>
@@ -44,4 +49,6 @@ export default function ShortLinkEditPage({ shortLink }) {
             </div>
         </>
     );
-}
+};
+
+export default ShortLinkEditPage;
